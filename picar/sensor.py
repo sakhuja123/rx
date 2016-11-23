@@ -21,7 +21,7 @@ def distance(measure='cm'):
     
     if measure == 'cm':
         distance = tl / 0.000058
-    elif measure == 'in:
+    elif measure == 'in':
         distance = tl / 0.000148
     else:
         print('Improper choice of measurement: in or cm')
