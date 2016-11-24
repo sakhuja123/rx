@@ -44,7 +44,7 @@ class Robot(object):
    
     def turn(self, dir='left', speed=80, seconds=5):
         self._left_speed(speed)
-        self._right_speed(speed/20)
+        self._right_speed(speed/10)
         print "TURN"
         self._left_front.run(Adafruit_MotorHAT.FORWARD)
         self._right_front.run(Adafruit_MotorHAT.FORWARD)
