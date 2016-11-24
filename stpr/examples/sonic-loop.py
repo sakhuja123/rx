@@ -14,7 +14,7 @@ while (i<20):
     GPIO.setup (ECHO,GPIO.IN)
     GPIO.output(TRIG,False)
     #print "adding sensor wait time"
-    time.sleep(.5)
+    time.sleep(.25)
     #print "trigger pulse start"
     GPIO.output(TRIG,True)
     time.sleep (0.00001)
