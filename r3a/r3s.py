@@ -9,7 +9,7 @@ def get_dist(self, sensorid = 'fc'):
     GPIO.setup (ECHO,GPIO.IN)
 
     GPIO.output(TRIG,False)
-    time.sleep(0.1)
+    time.sleep(0.3)
     GPIO.output(TRIG,True)
     time.sleep (0.00001)
     GPIO.output(TRIG,False)
