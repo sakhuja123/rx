@@ -30,4 +30,4 @@ def get_dist(sensorid = 'fc', measure='cm'):
     gpio.cleanup()
     return distance
 
-print(distance('cm'))
+#print(distance('cm'))
