@@ -65,7 +65,7 @@ class r3c(object):
             #while(r3.get_dist('fc') < 50):
             while(true):
                  i = duration +1 #to exit the nav mode
-                 self.move(self, left_speed, right_speed, 0.25)
+                 self.move(left_speed, right_speed, 0.25)
                  i = i+0.25
                  print "i is:",i
         self.stop()
