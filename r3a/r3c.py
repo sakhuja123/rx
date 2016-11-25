@@ -61,13 +61,11 @@ class r3c(object):
     #def r3_nav(self, 100, 100, 30):
         i = 0
         print 'duration/.25 is:',(duration/0.25)
-        while (i < (duration/0.25)):
-            print "in while loop"
-            #while(r3s.get_dist('fc') < 50):
-            while(i < (duration/0.25)):
-                 #self.move(100, 100, 0.25)
-                 i = i + 1
-                 print "i is:",i
+        for i in range(0, (duration/0.25)):
+            while(get_dist('fc') < 50):
+                 self.move(left_speed, right_speed, 0.25)
+                 i = i + .25
+                 #print "i is:",i
                  print "dist: ",get_dist('fc')
         self.stop()
 
