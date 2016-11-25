@@ -35,6 +35,10 @@ class r3c(object):
         self._right_rear.run(Adafruit_MotorHAT.FORWARD)
 
         run_start_time = time.time()
+        print "run stats:"
+        print run_duration
+        print run_start_time
+        print time.time()
         while(time.time()-run_start_time > run_duration)
             while(get_dist('fc') > 15):
                     #time.sleep(duration)
