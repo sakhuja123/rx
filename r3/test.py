@@ -6,11 +6,11 @@ LEFT_TRIM   = 0
 RIGHT_TRIM  = 0
 
 #robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
-r3x = r3c.r3c()
+r3 = r3c.r3c()
 
-r3x.move(100,100,1)
-r3x.move(100,100,1)
-r3x.stop()
+r3.move(50,50,1)
+r3.move(255,255,1)
+r3.stop()
 
 '''
 #robot.forward(255, 0.2)
