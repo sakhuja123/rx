@@ -56,6 +56,15 @@ class r3c(object):
             time.sleep(duration)
             self.stop()
 
+    def nav2(self, left_speed=50, right_speed=50, duration=20):
+    #nav takes into account obstacle avoidance while
+    #def r3_nav(self, 100, 100, 30):
+        self.move(left_speed, right_speed, duration)
+        while(get_dist('fc') > 20):
+            print "all good.. going fwd"
+        print "something in the way"
+        self.stop()
+
     def nav(self, left_speed=50, right_speed=50, duration=20):
     #nav takes into account obstacle avoidance while
     #def r3_nav(self, 100, 100, 30):
