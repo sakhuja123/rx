@@ -19,16 +19,16 @@ def get_dist(sensorid = 'fc', measure='cm'):
     print "measuring distance"
     GPIO.setup(TRIG,GPIO.OUT)
 
-    GPIO.setup (ECHO-FL,GPIO.IN)
-    GPIO.setup (ECHO-FR,GPIO.IN)
+    #GPIO.setup (ECHO-FL,GPIO.IN)
+    #GPIO.setup (ECHO-FR,GPIO.IN)
     GPIO.setup (ECHO-FC,GPIO.IN)
 
-    GPIO.setup (ECHO-RL,GPIO.IN)
-    GPIO.setup (ECHO-RR,GPIO.IN)
-    GPIO.setup (ECHO-RC,GPIO.IN)
+    #GPIO.setup (ECHO-RL,GPIO.IN)
+    #GPIO.setup (ECHO-RR,GPIO.IN)
+    #GPIO.setup (ECHO-RC,GPIO.IN)
 
-    GPIO.setup (ECHO-FDL,GPIO.IN)
-    GPIO.setup (ECHO-FDR,GPIO.IN)
+    #GPIO.setup (ECHO-FDL,GPIO.IN)
+    #GPIO.setup (ECHO-FDR,GPIO.IN)
 
     GPIO.output(TRIG,False)
     time.sleep(0.1)
