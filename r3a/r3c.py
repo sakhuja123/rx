@@ -24,19 +24,7 @@ class r3c(object):
                 if stop_at_exit:
                     atexit.register(self.stop)
 
-    def nav2(self, left_speed=50, right_speed=50, duration=20):
-    #nav takes into account obstacle avoidance while
-    #def r3_nav(self, 100, 100, 30):
-        print "nav2 start"
-        self.move(left_speed, right_speed, duration)
-        while(get_dist('fc') > 20):
-            #time.sleep(.5)
-            print "all good.. going fwd"
-        print "something in the way"
-        self.stop()
-        print "nav2 stop"
-
-    def nav(self, left_speed=50, right_speed=50, duration=20):
+    def nav_deprecated(self, left_speed=50, right_speed=50, duration=20):
     #nav takes into account obstacle avoidance while
     #def r3_nav(self, 100, 100, 30):
         i = 0
@@ -52,7 +40,7 @@ class r3c(object):
         self.stop()
         print "nav stop"
 
-    def move(self, left_speed=50, right_speed=50, duration=3):
+    def nav(self, left_speed=50, right_speed=50, duration=3):
     #def r3_move(self, -100, 255, 20):
         self._left_speed(left_speed)
         self._right_speed(right_speed)
@@ -66,7 +54,7 @@ class r3c(object):
                     #time.sleep(duration)
                     print "all good"
             self.stop()
-            print "stopping"
+            print "obstacle!"
 
     def _left_speed(self, speed):
         """Set the speed of the left motor, taking into account its trim offset.
@@ -105,3 +93,15 @@ class r3c(object):
         if duration is not None:
             time.sleep(duration)
             self.stop()
+
+    def nav2(self, left_speed=50, right_speed=50, duration=20):
+    #nav takes into account obstacle avoidance while
+    #def r3_nav(self, 100, 100, 30):
+        print "nav2 start"
+        self.move(left_speed, right_speed, duration)
+        while(get_dist('fc') > 20):
+            #time.sleep(.5)
+            print "all good.. going fwd"
+        print "something in the way"
+        self.stop()
+        print "nav2 stop"
