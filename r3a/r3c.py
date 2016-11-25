@@ -40,7 +40,7 @@ class r3c(object):
         print run_duration
         print run_start_time
         print current_time
-        while((current_time - run_start_time) > run_duration):
+        while((current_time - run_start_time) <= run_duration):
             while(get_dist('fc') > 15):
                     #time.sleep(duration)
                     print time.time(), "all good.. keep it movin' "
@@ -93,7 +93,7 @@ class r3c(object):
 ######################################################################
 ######################################################################
 ######################################################################
-######################################################################        
+######################################################################
 
     def move_old(self, left_speed=50, right_speed=50, duration=3):
         self._left_speed(left_speed)
