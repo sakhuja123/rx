@@ -1,4 +1,4 @@
-import RPi.GPIO as gpio
+import RPi.GPIO as GPIO
 import time
 
 def get_dist(sensorid = 'fc', measure='cm'):
