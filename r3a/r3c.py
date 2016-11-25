@@ -62,8 +62,11 @@ class r3c(object):
         self._left_rear.run(Adafruit_MotorHAT.FORWARD)
         self._right_rear.run(Adafruit_MotorHAT.FORWARD)
         if duration is not None:
-            time.sleep(duration)
+            while(get_dist('fc') > 20):
+                    #time.sleep(duration)
+                    print "all good"
             self.stop()
+            print "stopping"
 
     def _left_speed(self, speed):
         """Set the speed of the left motor, taking into account its trim offset.
@@ -89,3 +92,16 @@ class r3c(object):
         self._right_front.run(Adafruit_MotorHAT.RELEASE)
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
         self._right_rear.run(Adafruit_MotorHAT.RELEASE)
+
+    def move_old(self, left_speed=50, right_speed=50, duration=3):
+    #def r3_move(self, -100, 255, 20):
+        self._left_speed(left_speed)
+        self._right_speed(right_speed)
+
+        self._left_front.run(Adafruit_MotorHAT.FORWARD)
+        self._right_front.run(Adafruit_MotorHAT.FORWARD)
+        self._left_rear.run(Adafruit_MotorHAT.FORWARD)
+        self._right_rear.run(Adafruit_MotorHAT.FORWARD)
+        if duration is not None:
+            time.sleep(duration)
+            self.stop()
