@@ -1,24 +1,36 @@
+# from r3s
+
 import RPi.GPIO as GPIO
 import time
 
-def get_sensor_pin(sensorid = 'fc'):
-    return {
-        'fl': 24,
-        'fc': 24,
-        'fr': 24,
-        'rl': 24,
-        'fc': 24,
-        'rr': 24,
-        'fdc': 24,
-        'fdr': 24,
-    }.get(sensorid, 24)
-
-def get_dist(sensorid = 'fc'):
+def get_dist(sensorid = 'fc', measure='cm'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23
-    ECHO = self.get_sensor_pin(sensorid)
+
+    ECHO_FL=24
+    ECHO_FR=24
+    ECHO_FC=24
+
+    ECHO_RL=24
+    ECHO_RC=24
+    ECHO_RR=24
+
+    ECHO_FDL=24
+    ECHO_FDR=24
+
+    #print "measuring distance"
     GPIO.setup(TRIG,GPIO.OUT)
-    GPIO.setup (ECHO,GPIO.IN)
+
+    #GPIO.setup (ECHO-FL,GPIO.IN)
+    #GPIO.setup (ECHO-FR,GPIO.IN)
+    GPIO.setup (ECHO_FC,GPIO.IN)
+
+    #GPIO.setup (ECHO-RL,GPIO.IN)
+    #GPIO.setup (ECHO-RR,GPIO.IN)
+    #GPIO.setup (ECHO-RC,GPIO.IN)
+
+    #GPIO.setup (ECHO-FDL,GPIO.IN)
+    #GPIO.setup (ECHO-FDR,GPIO.IN)
 
     GPIO.output(TRIG,False)
     time.sleep(0.1)
@@ -26,17 +38,17 @@ def get_dist(sensorid = 'fc'):
     time.sleep (0.00001)
     GPIO.output(TRIG,False)
 
-    while GPIO.input(ECHO)==0:
-        ps=time.time()
+    while GPIO.input(ECHO_FC)==0:
+        ps_FC=time.time()
 
-    while GPIO.input(ECHO)==1:
-        pe=time.time()
+    while GPIO.input(ECHO_FC)==1:
+        pe_FC=time.time()
 
     #print "got start and end times, calculating distance now"
-    pd = pe - ps
-    distance=pd*17150/2
+    pd_FC = pe_FC - ps_FC
+    distance=pd_FC*17150/2
     distance=round(distance,2)
-    print ">> Sensor ID: ",sensorid,"-",ECHO," Dist: ",distance," cm"
+    print ">> ",distance," cm"
 
     GPIO.cleanup()
     return distance
