@@ -43,9 +43,9 @@ class r3c(object):
         print run_start_time
         print current_time
         while((current_time - run_start_time) <= run_duration):
-            self.move(left_speed, right_speed)
             while(get_dist('fc') > 15):
-                    print "all good.. keep it movin' "
+                self.move(left_speed, right_speed)
+                print "all good.. keep it movin' "
             self.pause()
             print "obstacle, waiting!"
             current_time = time.time()
@@ -61,9 +61,9 @@ class r3c(object):
         self._left_rear.run(Adafruit_MotorHAT.FORWARD)
         self._right_rear.run(Adafruit_MotorHAT.FORWARD)
 
-        time.sleep(max_pause_duration)
-        self.stop()
-        print "stopping! was paused too long :("
+        time.sleep(.1)
+        #self.stop()
+        #print "stopping! was paused too long :("
 
 
     def _left_speed(self, speed):
