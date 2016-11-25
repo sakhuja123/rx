@@ -60,12 +60,12 @@ class r3c(object):
     #nav takes into account obstacle avoidance while
     #def r3_nav(self, 100, 100, 30):
         i = 0
-        print 'move steps: ',(duration *4)
-        for i in range(0, (duration*4)):
+        print 'move steps: ',(duration *40)
+        for i in range(0, (duration*40)):
             while(get_dist('fc') > 20):
-                 self.move(left_speed, right_speed, 0.25)
+                 self.move(left_speed, right_speed, 0.025)
                  print "move call from nav"
-                 i = i + .25
+                 i = i + .025
                  #print "i is:",i
                  print "dist: ",get_dist('fc')
             print "move from nav done"
