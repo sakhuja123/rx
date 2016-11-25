@@ -7,14 +7,14 @@ def get_dist(sensorid = 'fc', measure='cm'):
     gpio.setup(18, gpio.IN)
 
     time.sleep(0.3)
-    gpio.output(12, True)
+    gpio.output(16, True)
     time.sleep(0.00001)
 
-    gpio.output(12, False)
-    while gpio.input(16) == 0:
+    gpio.output(16, False)
+    while gpio.input(18) == 0:
         nosig = time.time()
 
-    while gpio.input(16) == 1:
+    while gpio.input(18) == 1:
         sig = time.time()
 
     tl = sig - nosig
