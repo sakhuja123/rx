@@ -25,7 +25,7 @@ class r3c(object):
                 if stop_at_exit:
                     atexit.register(self.stop)
 
-    def nav(self, left_speed=50, right_speed=50, run_duration=2):
+    def move(self, left_speed=50, right_speed=50):
         self._left_speed(left_speed)
         self._right_speed(right_speed)
 
@@ -34,6 +34,8 @@ class r3c(object):
         self._left_rear.run(Adafruit_MotorHAT.FORWARD)
         self._right_rear.run(Adafruit_MotorHAT.FORWARD)
 
+    def nav(self, left_speed=50, right_speed=50, run_duration=2):
+
         run_start_time = time.time()
         current_time = time.time()
         print "run stats:"
@@ -41,9 +43,9 @@ class r3c(object):
         print run_start_time
         print current_time
         while((current_time - run_start_time) <= run_duration):
+            self.move(left_speed, right_speed)
             while(get_dist('fc') > 15):
-                    #time.sleep(duration)
-                    print time.time(), "all good.. keep it movin' "
+                    print "all good.. keep it movin' "
             self.pause()
             print "obstacle, waiting!"
             current_time = time.time()
