@@ -1,43 +1,33 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as gpio
 import time
-import math
-import string
 
-GPIO.setmode(GPIO.BCM)
-TRIG=23
-ECHO=24
-i=1
+def get_dist(measure='cm'):
+    gpio.setmode(gpio.BOARD)
+    gpio.setup(16, gpio.OUT)
+    gpio.setup(18, gpio.IN)
 
-print "measuring distance"
-while (i<20):
-    GPIO.setup(TRIG,GPIO.OUT)
-    GPIO.setup (ECHO,GPIO.IN)
-    GPIO.output(TRIG,False)
-    #print "adding sensor wait time"
-    time.sleep(.25)
-    #print "trigger pulse start"
-    GPIO.output(TRIG,True)
-    time.sleep (0.00001)
-    GPIO.output(TRIG,False)
-    #print "trigger pulse stop"
-    #print "getting echo start time"
-    while GPIO.input(ECHO)==0:
-        #print "echo value==0"
-        #pass
-        pulse_start=time.time()
-    #print "ECHO value is"+ str(ECHO)
-    #print "getting echo end time"
-    while GPIO.input(ECHO)==1:
-        #print "echo value==1"
-        #pass
-        pulse_end=time.time()
+    time.sleep(0.3)
+    gpio.ouput(12, True)
+    time.sleep(0.00001)
 
-    #print "got start and end times, calculating distance now"
-    pulse_duration = pulse_end - pulse_start
-    distance=pulse_duration*17150/2
-    distance=round(distance,2)
-    print "distance: ",distance,"cm"
-    #print "count: ",i
-    i = i+1
+    gpio.output(12, False)
+    while gpio.input(16) == 0:
+        nosig = time.time()
 
-GPIO.cleanup()
+    while gpio.input(16) == 1:
+        sig = time.time()
+
+    tl = sig - nosig
+
+    if measure == 'cm':
+        distance = tl / 0.000058
+    elif measure == 'in':
+        distance = tl / 0.000148
+    else:
+        print('Improper choice of measurement: in or cm')
+        distance = None
+
+    gpio.cleanup()
+    return distance
+
+print(distance('cm'))

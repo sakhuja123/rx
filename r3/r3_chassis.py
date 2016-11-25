@@ -3,6 +3,8 @@ import time
 import time
 import atexit
 from Adafruit_MotorHAT import Adafruit_MotorHAT
+from r3_sensor_dist import get_dist
+
 
 class r3c(object):
     def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,
@@ -56,7 +58,7 @@ class r3c(object):
             self.stop()
 
     def nav(self, left_speed, right_speed, duration):
-    #nav takes into account obstacle avoidance while     
+    #nav takes into account obstacle avoidance while
     #def r3_nav(self, 100, 100, 30):
         i = 0
         while (i < (duration/0.25)):
