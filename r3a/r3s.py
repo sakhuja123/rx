@@ -5,23 +5,23 @@ def get_dist(sensorid = 'fc', measure='cm'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23
 
-    ECHO-FL=24
-    ECHO-FR=24
-    ECHO-FC=24
+    ECHO_FL=24
+    ECHO_FR=24
+    ECHO_FC=24
 
-    ECHO-RL=24
-    ECHO-RC=24
-    ECHO-RR=24
+    ECHO_RL=24
+    ECHO_RC=24
+    ECHO_RR=24
 
-    ECHO-FDL=24
-    ECHO-FDR=24
+    ECHO_FDL=24
+    ECHO_FDR=24
 
     print "measuring distance"
     GPIO.setup(TRIG,GPIO.OUT)
 
     #GPIO.setup (ECHO-FL,GPIO.IN)
     #GPIO.setup (ECHO-FR,GPIO.IN)
-    GPIO.setup (ECHO-FC,GPIO.IN)
+    GPIO.setup (ECHO_FC,GPIO.IN)
 
     #GPIO.setup (ECHO-RL,GPIO.IN)
     #GPIO.setup (ECHO-RR,GPIO.IN)
@@ -36,10 +36,10 @@ def get_dist(sensorid = 'fc', measure='cm'):
     time.sleep (0.00001)
     GPIO.output(TRIG,False)
 
-    while GPIO.input(ECHO-FC)==0:
+    while GPIO.input(ECHO_FC)==0:
         ps-FC=time.time()
 
-    while GPIO.input(ECHO-FC)==1:
+    while GPIO.input(ECHO_FC)==1:
         pe-FC=time.time()
 
     #print "got start and end times, calculating distance now"
