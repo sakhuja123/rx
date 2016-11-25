@@ -61,7 +61,7 @@ class r3c(object):
     #def r3_nav(self, 100, 100, 30):
         i = 0
         print 'duration/.25 is:',(duration/0.25)
-        for i in range(0, (duration/0.25)):
+        for i in range(0, (duration*4)):
             while(get_dist('fc') < 50):
                  self.move(left_speed, right_speed, 0.25)
                  i = i + .25
