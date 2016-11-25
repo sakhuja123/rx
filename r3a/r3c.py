@@ -2,7 +2,7 @@ import sys
 import time
 import atexit
 from Adafruit_MotorHAT import Adafruit_MotorHAT
-#from r3s import get_dist
+from r3s import get_dist
 
 
 class r3c(object):
