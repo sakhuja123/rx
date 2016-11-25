@@ -61,7 +61,7 @@ class r3c(object):
         self._left_rear.run(Adafruit_MotorHAT.FORWARD)
         self._right_rear.run(Adafruit_MotorHAT.FORWARD)
 
-        time.sleep(1)
+        time.sleep(.1)
         #self.stop()
         #print "stopping! was paused too long :("
 
