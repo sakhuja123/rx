@@ -1,5 +1,6 @@
 import time
 import r3c
+from r3s import get_dist
 
 r3 = r3c.r3c()
 print "moving"
