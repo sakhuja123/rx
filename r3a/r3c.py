@@ -40,7 +40,7 @@ class r3c(object):
         print run_duration
         print run_start_time
         print current_time
-        while((current_time - run_start_time) > run_duration)
+        while((current_time - run_start_time) > run_duration):
             while(get_dist('fc') > 15):
                     #time.sleep(duration)
                     print time.time(), "all good.. keep it movin' "
