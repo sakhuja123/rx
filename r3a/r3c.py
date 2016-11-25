@@ -1,6 +1,6 @@
 import sys
 import time
-#import datetime
+import datetime
 import atexit
 from Adafruit_MotorHAT import Adafruit_MotorHAT
 from r3s import get_dist
@@ -26,7 +26,6 @@ class r3c(object):
                     atexit.register(self.stop)
 
     def nav(self, left_speed=50, right_speed=50, run_duration=2):
-    #def r3_move(self, -100, 255, 20):
         self._left_speed(left_speed)
         self._right_speed(right_speed)
 
@@ -44,6 +43,20 @@ class r3c(object):
             print "obstacle, waiting!"
         self.stop()
         print "time up! stopping"
+
+def pause(self, left_speed=0, right_speed=0, max_pause_duration=20):
+    self._left_speed(left_speed)
+    self._right_speed(right_speed)
+
+    self._left_front.run(Adafruit_MotorHAT.FORWARD)
+    self._right_front.run(Adafruit_MotorHAT.FORWARD)
+    self._left_rear.run(Adafruit_MotorHAT.FORWARD)
+    self._right_rear.run(Adafruit_MotorHAT.FORWARD)
+
+    time.sleep(max_pause_duration)
+    self.stop()
+    print "stopping! was paused too long :("
+
 
     def _left_speed(self, speed):
         """Set the speed of the left motor, taking into account its trim offset.
