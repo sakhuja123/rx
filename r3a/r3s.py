@@ -7,7 +7,7 @@ def get_dist(sensorid = 'fc', measure='cm'):
     gpio.setup(18, gpio.IN)
 
     time.sleep(0.3)
-    gpio.ouput(12, True)
+    gpio.output(12, True)
     time.sleep(0.00001)
 
     gpio.output(12, False)
