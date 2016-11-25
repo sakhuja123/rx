@@ -68,7 +68,7 @@ class r3c(object):
                  #self.move(100, 100, 0.25)
                  i = i + 1
                  print "i is:",i
-                 print "dist: ",r3s.get_dist('fc')
+                 print "dist: ",get_dist('fc')
         self.stop()
 
     def stop(self):
