@@ -37,18 +37,12 @@ class r3c(object):
     def nav(self, left_speed=50, right_speed=50, run_duration=2):
 
         run_start_time = time.time()
-        current_time = time.time()
-        print "run stats:"
-        print run_duration
-        print run_start_time
-        print current_time
-        while((current_time - run_start_time) <= run_duration):
+        while((time.time() - run_start_time) <= run_duration):
             while(get_dist('fc') > 15):
                 self.move(left_speed, right_speed)
                 print "all good.. keep it movin' "
             self.pause()
             print "obstacle, waiting!"
-            current_time = time.time()
         self.stop()
         print "time up! stopping"
 
