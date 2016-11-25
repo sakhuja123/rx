@@ -56,16 +56,16 @@ class r3c(object):
             time.sleep(duration)
             self.stop()
 
-    def nav(self, left_speed=50, right_speed=50, duration=10):
+    def nav(self, left_speed=50, right_speed=50, duration=20):
     #nav takes into account obstacle avoidance while
     #def r3_nav(self, 100, 100, 30):
         i = 0
-        print 'move steps: ',(duration *40)
-        for i in range(0, (duration*40)):
+        print 'move steps: ',(duration )
+        for i in range(0, (duration)):
             while(get_dist('fc') > 20):
-                 self.move(left_speed, right_speed, 0.025)
+                 self.move(left_speed, right_speed, 1)
                  print "move call from nav"
-                 i = i + .025
+                 i = i + 1
                  #print "i is:",i
                  print "dist: ",get_dist('fc')
             print "move from nav done"
