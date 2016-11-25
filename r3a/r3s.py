@@ -37,14 +37,14 @@ def get_dist(sensorid = 'fc', measure='cm'):
     GPIO.output(TRIG,False)
 
     while GPIO.input(ECHO_FC)==0:
-        ps-FC=time.time()
+        ps_FC=time.time()
 
     while GPIO.input(ECHO_FC)==1:
-        pe-FC=time.time()
+        pe_FC=time.time()
 
     #print "got start and end times, calculating distance now"
-    pd-FC = pe-FC - ps-FC
-    distance=pd-FC*17150/2
+    pd_FC = pe_FC - ps_FC
+    distance=pd_FC*17150/2
     distance=round(distance,2)
     print "distance: ",distance,"cm"
 
