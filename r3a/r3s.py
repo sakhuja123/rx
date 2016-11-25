@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-def get_sensor_pin(sensorid = 'fc'):
+def get_sensor_pin(self, sensorid = 'fc'):
     return {
         'fl': 24,
         'fc': 24,
@@ -13,7 +13,7 @@ def get_sensor_pin(sensorid = 'fc'):
         'fdr': 24,
     }.get(sensorid, 24)
 
-def get_dist(sensorid = 'fc'):
+def get_dist(self, sensorid = 'fc'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23
     ECHO = self.get_sensor_pin(sensorid)
