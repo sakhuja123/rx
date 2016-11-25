@@ -61,6 +61,7 @@ class r3c(object):
     #def r3_nav(self, 100, 100, 30):
         self.move(left_speed, right_speed, duration)
         while(get_dist('fc') > 20):
+            #time.sleep(.5)
             print "all good.. going fwd"
         print "something in the way"
         self.stop()
