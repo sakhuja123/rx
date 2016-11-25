@@ -56,12 +56,13 @@ class r3c(object):
             self.stop()
 
     def nav(self, left_speed, right_speed, duration):
+    #nav takes into account obstacle avoidance while     
     #def r3_nav(self, 100, 100, 30):
         i = 0
         while (i < (duration/0.25)):
             move(self, left_speed, right_speed, 0.25)
             i = i+0.25
-            if(r3.get_dist() < 50):
+            if(r3.get_dist('fc') < 50):
                  i = duration +1 #to exit the nav mode
 
     def stop(self):

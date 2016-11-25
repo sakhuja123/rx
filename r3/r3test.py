@@ -1,6 +1,6 @@
 import time
 import Robot
-import r3c
+import r3c #r3 chassis functions
 
 LEFT_TRIM   = 0
 RIGHT_TRIM  = 0
