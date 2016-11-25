@@ -44,7 +44,7 @@ class r3c(object):
         self._right_front.setSpeed(speed)
         self._right_rear.setSpeed(speed)
 
-    def move(self, left_speed=100, right_speed=100, duration=3):
+    def move(self, left_speed=50, right_speed=50, duration=3):
     #def r3_move(self, -100, 255, 20):
         self._left_speed(left_speed)
         self._right_speed(right_speed)
@@ -57,10 +57,11 @@ class r3c(object):
             time.sleep(duration)
             self.stop()
 
-    def nav(self, left_speed=60, right_speed=60, duration=10):
+    def nav(self, left_speed=50, right_speed=50, duration=10):
     #nav takes into account obstacle avoidance while
     #def r3_nav(self, 100, 100, 30):
         i = 0
+        print 'duration/.25 is:',(duration/0.25)
         while (i < (duration/0.25)):
             print "in while loop"
             #while(r3.get_dist('fc') < 50):
