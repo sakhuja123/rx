@@ -1,5 +1,6 @@
 import sys
 import time
+#import datetime
 import atexit
 from Adafruit_MotorHAT import Adafruit_MotorHAT
 from r3s import get_dist
@@ -24,23 +25,7 @@ class r3c(object):
                 if stop_at_exit:
                     atexit.register(self.stop)
 
-    def nav_deprecated(self, left_speed=50, right_speed=50, duration=20):
-    #nav takes into account obstacle avoidance while
-    #def r3_nav(self, 100, 100, 30):
-        i = 0
-        print "nav start"
-        print 'move steps: ',(duration )
-        for i in range(0, (duration)):
-            while(get_dist('fc') > 20):
-                 self.move(left_speed, right_speed, 1)
-                 #print "move call from nav"
-                 i = i + 1
-                 #print "i is:",i
-                 #print "dist: ",get_dist('fc')
-        self.stop()
-        print "nav stop"
-
-    def nav(self, left_speed=50, right_speed=50, duration=3):
+    def nav(self, left_speed=50, right_speed=50, run_duration=2):
     #def r3_move(self, -100, 255, 20):
         self._left_speed(left_speed)
         self._right_speed(right_speed)
@@ -49,12 +34,16 @@ class r3c(object):
         self._right_front.run(Adafruit_MotorHAT.FORWARD)
         self._left_rear.run(Adafruit_MotorHAT.FORWARD)
         self._right_rear.run(Adafruit_MotorHAT.FORWARD)
-        if duration is not None:
-            while(get_dist('fc') > 20):
+
+        run_start_time = time.time()
+        while(time.time()-run_start_time > run_duration)
+            while(get_dist('fc') > 15):
                     #time.sleep(duration)
-                    print "all good"
-            self.stop()
-            print "obstacle!"
+                    print time.time(), "all good.. keep it movin' "
+            self.pause()
+            print "obstacle, waiting!"
+        self.stop()
+        print "time up! stopping"
 
     def _left_speed(self, speed):
         """Set the speed of the left motor, taking into account its trim offset.
@@ -105,3 +94,19 @@ class r3c(object):
         print "something in the way"
         self.stop()
         print "nav2 stop"
+
+    def nav_deprecated(self, left_speed=50, right_speed=50, duration=20):
+    #nav takes into account obstacle avoidance while
+    #def r3_nav(self, 100, 100, 30):
+        i = 0
+        print "nav start"
+        print 'move steps: ',(duration )
+        for i in range(0, (duration)):
+            while(get_dist('fc') > 20):
+                 self.move(left_speed, right_speed, 1)
+                 #print "move call from nav"
+                 i = i + 1
+                 #print "i is:",i
+                 #print "dist: ",get_dist('fc')
+        self.stop()
+        print "nav stop"

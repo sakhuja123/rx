@@ -35,8 +35,8 @@ def get_sensorpin(self, sensorid = 'fc'):
         'fc': 24,
         'fr': 24,
         'rl': 24,
-        'fc': 24,
+        'rc': 24,
         'rr': 24,
-        'fdc': 24,
+        'fdl': 24,
         'fdr': 24,
     }.get(sensorid, 24)
