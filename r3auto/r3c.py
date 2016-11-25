@@ -62,7 +62,7 @@ class r3c(object):
         while (i < (duration/0.25)):
             print "in while loop"
             #while(r3.get_dist('fc') < 50):
-            while(true):
+            while(1==1):
                  #self.move(100, 100, 0.25)
                  i = i + 1
                  print "i is:",i
