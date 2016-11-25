@@ -4,7 +4,7 @@ import time
 import atexit
 from Adafruit_MotorHAT import Adafruit_MotorHAT
 
-class r3(object):
+class r3c(object):
     def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,
                  stop_at_exit=True):
                 # Initialize motor HAT and left, right motor.
@@ -69,4 +69,4 @@ class r3(object):
         self._left_front.run(Adafruit_MotorHAT.RELEASE)
         self._right_front.run(Adafruit_MotorHAT.RELEASE)
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
-        self._right_rear.run(Adafruit_MotorHAT.RELEASE)                 
+        self._right_rear.run(Adafruit_MotorHAT.RELEASE)

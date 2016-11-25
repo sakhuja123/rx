@@ -1,12 +1,12 @@
 import time
 import Robot
-import r3_motion
+import r3c
 
 LEFT_TRIM   = 0
 RIGHT_TRIM  = 0
 
 #robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
-r3x = r3.r3()
+r3x = r3c.r3c()
 
 r3x.move(100,100,1)
 r3x.move(100,100,1)
