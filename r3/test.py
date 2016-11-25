@@ -8,9 +8,9 @@ RIGHT_TRIM  = 0
 #robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
 r3 = r3c.r3c()
 
-r3.move(50,50,1)
+r3.nav(50,50,1)
 time.sleep(1)
-r3.move(255,255,1)
+r3.nav(255,255,1)
 r3.stop()
 
 '''

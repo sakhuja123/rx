@@ -1,7 +1,7 @@
 import RPi.GPIO as gpio
 import time
 
-def get_dist(measure='cm'):
+def get_dist(sensorid = 'fc', measure='cm'):
     gpio.setmode(gpio.BOARD)
     gpio.setup(16, gpio.OUT)
     gpio.setup(18, gpio.IN)
