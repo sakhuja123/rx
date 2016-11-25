@@ -62,8 +62,9 @@ class r3c(object):
         i = 0
         print 'move steps: ',(duration *4)
         for i in range(0, (duration*4)):
-            while(get_dist('fc') < 50):
+            while(get_dist('fc') < 5000):
                  self.move(left_speed, right_speed, 0.25)
+                 print "move call from nav"
                  i = i + .25
                  #print "i is:",i
                  print "dist: ",get_dist('fc')
