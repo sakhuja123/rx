@@ -9,6 +9,7 @@ RIGHT_TRIM  = 0
 r3 = r3c.r3c()
 
 r3.move(50,50,1)
+time.sleep(1)
 r3.move(255,255,1)
 r3.stop()
 
