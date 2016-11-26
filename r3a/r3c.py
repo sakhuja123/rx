@@ -76,12 +76,12 @@ class r3c(object):
     def _set_speed(self, speed, side='both'):
         assert -255 <= speed <= 255, 'Speed must be a value between -255 to 255 inclusive!'
 
-        if(side == 'left' || side == 'both'):
+        if(side == 'left' or side == 'both'):
             speed += self._left_trim
             speed = max(-255, min(255, speed))
             self._left_front.setSpeed(abs(speed))
             self._left_rear.setSpeed(abs(speed))
-        elif(side=='right' || side == 'both'):
+        elif(side=='right' or side == 'both'):
             speed += self._right_trim
             speed = max(-255, min(255, speed))
             self._right_front.setSpeed(abs(speed))
