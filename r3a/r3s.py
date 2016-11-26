@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-def get_dist(self, sensorid = 'zz'):
+def get_dist(sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23 #common for all sensors. Fire trig simultaneously
     print "sensorid to convert: ",sensorid
@@ -31,7 +31,7 @@ def get_dist(self, sensorid = 'zz'):
     GPIO.cleanup()
     return distance
 
-def get_sensorpin(self, sensorid = 'xx'):
+def get_sensorpin(sensorid = 'xx'):
     print "@Sensor ID: ",sensorid
     return {
         'fl': 00,
