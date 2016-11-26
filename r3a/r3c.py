@@ -41,7 +41,7 @@ class r3c(object):
                 self.nav(-80,-80,1)
                 self.pivot('left',3)
         self.pause()
-        print "nav time up!"
+        print "Time up for: ",move_command
 
     def get_move_command(self, left_speed, right_speed):
         move_command = 'UNKNOWN'
