@@ -4,9 +4,9 @@ import time
 def get_dist(sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23 #common for all sensors. Fire trig simultaneously
-    print "sensorid to convert: ",sensorid
+    #print "sensorid to convert: ",sensorid
     ECHO = get_sensorpin(sensorid)
-    print "ECHO is: ",ECHO
+    #print "ECHO is: ",ECHO
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
@@ -32,7 +32,7 @@ def get_dist(sensorid = 'zz'):
     return distance
 
 def get_sensorpin(sensorid = 'xx'):
-    print "@Sensor ID: ",sensorid
+    #print "@Sensor ID: ",sensorid
     return {
         'fl': 00,
         'fc': 24,
