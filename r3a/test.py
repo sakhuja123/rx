@@ -7,7 +7,9 @@ print "test start, initializing chasis and sensors"
 r = r3c.r3c() #initialize chassis
 
 print "sensor readings start"
-get_dist('fc')
+for x in range(0, 30):
+    get_dist('fc')
+    time.sleep(1)
 print "sensor readings end"
 
 
