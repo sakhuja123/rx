@@ -38,7 +38,7 @@ class r3c(object):
 
         run_start_time = time.time()
         while((time.time() - run_start_time) <= run_duration):
-            while(get_dist('fc') > 15):
+            while(get_dist('fc') > 5):
                 self.move(left_speed, right_speed)
                 print "all good.. keep it movin' "
             self.pause()
