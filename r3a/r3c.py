@@ -3,7 +3,7 @@ import time
 import datetime
 import atexit
 from Adafruit_MotorHAT import Adafruit_MotorHAT
-from r3s import get_dist
+from r3s import get_dist, get_sensorpin
 
 class r3c(object):
 

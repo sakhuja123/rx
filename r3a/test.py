@@ -1,6 +1,6 @@
 import time
 import r3c
-from r3s import get_dist
+from r3s import get_dist, get_sensorpin
 
 
 print "test start, initializing chasis and sensors"
