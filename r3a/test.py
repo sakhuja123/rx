@@ -4,7 +4,7 @@ from r3s import get_dist
 
 
 print "sensor readings start"
-    r3s.get_dist()
+r3s.get_dist()
 print "sensor readings end"
 
 print "test start"
