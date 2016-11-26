@@ -29,8 +29,8 @@ class r3c(object):
             atexit.register(self.stop)
 
     def journey(self, destination='random', journey_duration='60'):
-        r.nav(100,100,60)
-        r.stop()
+        self.nav(100,100,60)
+        self.stop()
 
     def nav(self, left_speed, right_speed, run_duration=5):
         move_command = self.get_move_command(left_speed, right_speed)
