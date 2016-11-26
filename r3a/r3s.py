@@ -5,6 +5,7 @@ def get_dist(self, sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23 #common for all sensors. Fire trig simultaneously
     ECHO = get_sensorpin(sensorid)
+    print "ECHO is: ",ECHO
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
