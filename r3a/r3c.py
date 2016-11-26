@@ -8,9 +8,9 @@ from r3s import get_dist
 class r3c(object):
 
     def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,stop_at_exit=True):
-        global move_command
-        move_command = 'UNDEF'
-        #self._define_vars()
+        #global move_command
+        #move_command = 'UNDEF'
+        self._define_vars()
         # Initialize motor HAT and left, right motor.
         self._mh = Adafruit_MotorHAT(addr)
         self._left_front = self._mh.getMotor(left_front_id)
@@ -29,7 +29,7 @@ class r3c(object):
             atexit.register(self.stop)
 
     def nav(self, left_speed, right_speed, run_duration=5):
-        move_command = get_move_command(left_speed, right_speed)
+        move_command = self.get_move_command(left_speed, right_speed)
         run_start_time = time.time()
         while((time.time() - run_start_time) <= run_duration):
             self.move(left_speed, right_speed)
