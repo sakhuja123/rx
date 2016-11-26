@@ -31,16 +31,17 @@ class r3c(object):
     def nav(self, left_speed, right_speed, run_duration=5):
         move_command = self.get_move_command(left_speed, right_speed)
         run_start_time = time.time()
+        print "nav start"
         while((time.time() - run_start_time) <= run_duration):
             self.move(left_speed, right_speed)
-            print "navigating: all good.. "
+            #print "navigating: all good.. "
             if(get_dist('fc') < 5 and (('FWD' in move_command) or ('PIVOT' in move_command))):
-                print "obstacle!"
+                print "obstacle during nav"
                 self.pause()
                 self.nav(-80,-80,2)
-                self.pivot('left', 5)
+                self.pivot('left',5)
         self.stop()
-        print "run time up!"
+        print "nav time up!"
 
     def get_move_command(self, left_speed, right_speed):
         move_command = 'UNKNOWN'
@@ -60,7 +61,7 @@ class r3c(object):
             move_command = 'PIVOT_RIGHT'
         elif(left_speed == 0 and right_speed == 0):
             move_command = 'PAUSE'
-        print "got move command as: ",move_command
+        print ">> MOVE COMMAND IS: ",move_command
         return move_command
 
     def pivot(self,side='left',run_duration=2):
