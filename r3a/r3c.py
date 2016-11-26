@@ -175,7 +175,7 @@ class r3c(object):
         self._right_front.setSpeed(speed)
         self._right_rear.setSpeed(speed)
 
-    def nav-working(self, left_speed, right_speed, run_duration=5):
+    def nav_working(self, left_speed, right_speed, run_duration=5):
         run_start_time = time.time()
         while((time.time() - run_start_time) <= run_duration):
             while(get_dist('fc') > 5):
