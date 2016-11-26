@@ -7,6 +7,7 @@ r = r3c.r3c() #initialize chassis
 
 print "nav test 60 secs"
 r.nav(100,100,60)
+r.stop()
 
 '''
 print "pivot left"

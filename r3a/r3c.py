@@ -40,7 +40,7 @@ class r3c(object):
                 self.pause()
                 self.nav(-80,-80,2)
                 self.pivot('left',5)
-        self.stop()
+        self.pause()
         print "nav time up!"
 
     def get_move_command(self, left_speed, right_speed):
