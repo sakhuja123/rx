@@ -28,7 +28,9 @@ class r3c(object):
         if stop_at_exit:
             atexit.register(self.stop)
 
-    def journey(self, destination='random', journey_duration='60'):
+    def journey(self, route='random', journey_duration='60'):
+        self.nav(-255,-255,.5)
+        self.pivot('right',2)
         self.nav(100,100,60)
         self.stop()
 
