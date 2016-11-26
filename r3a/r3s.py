@@ -33,7 +33,7 @@ def get_sensorpin(self, sensorid = 'fc'):
     return {
         'fl': 24,
         'fc': 24,
-        'fr': 24,
+        'fr': 25,
         'rl': 24,
         'rc': 24,
         'rr': 24,
