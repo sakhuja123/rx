@@ -2,6 +2,11 @@ import time
 import r3c
 from r3s import get_dist
 
+
+print "sensor readings start"
+    r3s.get_dist()
+print "sensor readings end"
+
 print "test start"
 r = r3c.r3c() #initialize chassis
 r.journey()
