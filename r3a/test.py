@@ -5,8 +5,8 @@ from r3s import get_dist
 print "test start"
 r = r3c.r3c() #initialize chassis
 
-print "nav test 30 secs"
-r.nav(65,65,30)
+print "nav test 60 secs"
+r.nav(100,100,60)
 
 '''
 print "pivot left"
