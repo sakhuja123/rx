@@ -26,15 +26,35 @@ class r3c(object):
                     atexit.register(self.stop)
 
     def nav(self, left_speed, right_speed, run_duration=5):
+        move_command = get_move_command(left_speed, right_speed)
         run_start_time = time.time()
         while((time.time() - run_start_time) <= run_duration):
             self.move(left_speed, right_speed)
             print "navigating: all good.. "
-            if(get_dist('fc') < 5):
+            if(get_dist('fc') < 5 and ):
                 print "obstacle!"
                 self.pause()
         self.stop()
         print "run time up!"
+
+    def get_move_command(self, left_speed, right_speed)
+        move_command = 'UNKNOWN'
+        if(left_speed > 0 and right_speed > 0):
+            if(left_speed == right_speed)
+                move_command = 'FWD'
+            if(left_speed > right_speed)
+                move_command = 'FWD_RIGHT'
+            if(left_speed < right_speed)
+                move_command = 'FWD_LEFT'
+        elif(left_speed < 0 and right_speed < 0):
+            move_command = 'RVRS'
+        elif(left_speed = 0 and right_speed > 0):
+            move_command = 'PIVOT_LEFT'
+        elif(left_speed > 0 and right_speed < 0):
+            move_command = 'PIVOT_RIGHT'
+        elif(left_speed == 0 and right_speed == 0):
+            move_command = 'PAUSE'
+        return move_command
 
     def pivot(self,side='left',run_duration=5):
         if(side=='left'):
