@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-def get_dist(self, sensorid = 'fc'):
+def get_dist(self, sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23
     ECHO = get_sensorpin(sensorid)
@@ -24,7 +24,7 @@ def get_dist(self, sensorid = 'fc'):
     pd = pe - ps
     distance=pd*17150/2
     distance=round(distance,2)
-    print ">> Sensor ID: ",sensorid,"-",ECHO," Dist: ",distance," cm"
+    print ">> Sensor ID: ",sensorid,":",ECHO," Dist: ",distance,"cm"
 
     GPIO.cleanup()
     return distance
