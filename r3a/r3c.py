@@ -6,9 +6,9 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT
 from r3s import get_dist
 
 class r3c(object):
-    def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,stop_at_exit=True):
 
-        self.define_vars()
+    def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,stop_at_exit=True):
+        self._define_vars()
         # Initialize motor HAT and left, right motor.
         self._mh = Adafruit_MotorHAT(addr)
         self._left_front = self._mh.getMotor(left_front_id)
@@ -111,7 +111,7 @@ class r3c(object):
             self._right_front.setSpeed(abs(speed))
             self._right_rear.setSpeed(abs(speed))
 
-    def define_vars(self):
+    def _define_vars(self):
         global move_command
         move_command = 'NONE'
 
