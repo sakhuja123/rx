@@ -3,8 +3,11 @@ import r3c
 from r3s import get_dist
 
 print "test start"
-r3 = r3c.r3c() #initialize chassis
+r = r3c.r3c() #initialize chassis
 
-r3.nav(65,65,90) #autonmous navigation
+r.nav(65,65,10)
+r.nav(-65,-65,10)
+r.pivot('left')
+r.pivot('right')
 
 print "test over!"

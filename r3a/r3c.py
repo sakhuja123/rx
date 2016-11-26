@@ -25,58 +25,27 @@ class r3c(object):
                 if stop_at_exit:
                     atexit.register(self.stop)
 
-    def move(self, left_speed=50, right_speed=50):
-        self._left_speed(left_speed)
-        self._right_speed(right_speed)
-
-        self._left_front.run(Adafruit_MotorHAT.FORWARD)
-        self._right_front.run(Adafruit_MotorHAT.FORWARD)
-        self._left_rear.run(Adafruit_MotorHAT.FORWARD)
-        self._right_rear.run(Adafruit_MotorHAT.FORWARD)
-
-    def nav(self, left_speed=50, right_speed=50, run_duration=2):
-
+    def nav(self, left_speed, right_speed, run_duration=5):
         run_start_time = time.time()
         while((time.time() - run_start_time) <= run_duration):
             while(get_dist('fc') > 5):
                 self.move(left_speed, right_speed)
-                print "all good.. keep it movin' "
+                print "navigating: all good.. "
+            print "obstacle!"
             self.pause()
-            print "obstacle, waiting!"
         self.stop()
-        print "time up! stopping"
+        print "run time up!"
 
-    def pause(self, left_speed=0, right_speed=0, max_pause_duration=20):
-        self._left_speed(left_speed)
-        self._right_speed(right_speed)
+    def pivot(self,side='left',run_duration=10):
+        if(side=='left'):
+            print "pivot left"
+            nav(255,-255,run_duration)
+        if(side=='right'):
+            print "pivot right"
+            nav(-255,255,run_duration)
 
-        self._left_front.run(Adafruit_MotorHAT.FORWARD)
-        self._right_front.run(Adafruit_MotorHAT.FORWARD)
-        self._left_rear.run(Adafruit_MotorHAT.FORWARD)
-        self._right_rear.run(Adafruit_MotorHAT.FORWARD)
-
-        time.sleep(1)
-        #self.stop()
-        #print "stopping! was paused too long :("
-
-
-    def _left_speed(self, speed):
-        """Set the speed of the left motor, taking into account its trim offset.
-        """
-        assert 0 <= speed <= 255, 'Speed must be a value between 0 to 255 inclusive!'
-        speed += self._left_trim
-        speed = max(0, min(255, speed))  # Constrain speed to 0-255 after trimming.
-        self._left_front.setSpeed(speed)
-        self._left_rear.setSpeed(speed)
-
-    def _right_speed(self, speed):
-        """Set the speed of the right motor, taking into account its trim offset.
-        """
-        assert 0 <= speed <= 255, 'Speed must be a value between 0 to 255 inclusive!'
-        speed += self._right_trim
-        speed = max(0, min(255, speed))  # Constrain speed to 0-255 after trimming.
-        self._right_front.setSpeed(speed)
-        self._right_rear.setSpeed(speed)
+    def pause(self, max_pause_duration=20):
+        self.move(0, 0)
 
     def stop(self):
         """Stop all movement."""
@@ -84,7 +53,39 @@ class r3c(object):
         self._right_front.run(Adafruit_MotorHAT.RELEASE)
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
         self._right_rear.run(Adafruit_MotorHAT.RELEASE)
+        print "stopped"
 
+    def move(self, left_speed=65, right_speed=65):
+        self._set_speed(left_speed, 'left')
+        self._set_speed(right_speed, 'right')
+
+        if(left_speed >= 0):
+            self._left_front.run(Adafruit_MotorHAT.FORWARD)
+            self._left_rear.run(Adafruit_MotorHAT.FORWARD)
+        else
+            self._left_front.run(Adafruit_MotorHAT.BACKWARD)
+            self._left_rear.run(Adafruit_MotorHAT.BACKWARD)
+
+        if(right_speed >= 0):
+            self._right_front.run(Adafruit_MotorHAT.FORWARD)
+            self._right_rear.run(Adafruit_MotorHAT.FORWARD)
+        else
+            self._right_front.run(Adafruit_MotorHAT.BACKWARD)
+            self._right_rear.run(Adafruit_MotorHAT.BACKWARD)
+
+    def _set_speed(self, speed, side='both'):
+        assert -255 <= speed <= 255, 'Speed must be a value between -255 to 255 inclusive!'
+
+        if(side == 'left' || side == 'both'):
+            speed += self._left_trim
+            speed = max(-255, min(255, speed))
+            self._left_front.setSpeed(abs(speed))
+            self._left_rear.setSpeed(abs(speed))
+        elif(side=='right' || side == 'both'):
+            speed += self._right_trim
+            speed = max(-255, min(255, speed))
+            self._right_front.setSpeed(abs(speed))
+            self._right_rear.setSpeed(abs(speed))
 
 ######################################################################
 ######################################################################
@@ -130,3 +131,23 @@ class r3c(object):
                  #print "dist: ",get_dist('fc')
         self.stop()
         print "nav stop"
+
+    def _left_speedxx(self, speed):
+        """Set the speed of the left motor, taking into account its trim offset.
+        """
+        #assert 0 <= speed <= 255, 'Speed must be a value between 0 to 255 inclusive!'
+        assert -255 <= speed <= 255, 'Speed must be a value between 0 to 255 inclusive!'
+        speed += self._left_trim
+        #speed = max(0, min(255, speed))  # Constrain speed to 0-255 after trimming.
+        speed = max(-255, min(255, speed))  # Constrain speed to 0-255 after trimming.
+        self._left_front.setSpeed(abs(speed))
+        self._left_rear.setSpeed(abs(speed))
+
+    def _right_speedxx(self, speed):
+        """Set the speed of the right motor, taking into account its trim offset.
+        """
+        assert 0 <= speed <= 255, 'Speed must be a value between 0 to 255 inclusive!'
+        speed += self._right_trim
+        speed = max(0, min(255, speed))  # Constrain speed to 0-255 after trimming.
+        self._right_front.setSpeed(speed)
+        self._right_rear.setSpeed(speed)
