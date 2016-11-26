@@ -6,27 +6,25 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT
 from r3s import get_dist
 
 class r3c(object):
-    def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,
-                 stop_at_exit=True):
+    def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,stop_at_exit=True):
 
-                 define_vars()
-
-                # Initialize motor HAT and left, right motor.
-                self._mh = Adafruit_MotorHAT(addr)
-                self._left_front = self._mh.getMotor(left_front_id)
-                self._right_front = self._mh.getMotor(right_front_id)
-                self._left_rear = self._mh.getMotor(left_rear_id)
-                self._right_rear = self._mh.getMotor(right_rear_id)
-                self._left_trim = left_trim
-                self._right_trim = right_trim
-                # Start with motors turned off.
-                self._left_front.run(Adafruit_MotorHAT.RELEASE)
-                self._right_front.run(Adafruit_MotorHAT.RELEASE)
-                self._left_rear.run(Adafruit_MotorHAT.RELEASE)
-                self._right_rear.run(Adafruit_MotorHAT.RELEASE)
-               # Configure all motors to stop at program exit if desired.
-                if stop_at_exit:
-                    atexit.register(self.stop)
+         define_vars()
+        # Initialize motor HAT and left, right motor.
+        self._mh = Adafruit_MotorHAT(addr)
+        self._left_front = self._mh.getMotor(left_front_id)
+        self._right_front = self._mh.getMotor(right_front_id)
+        self._left_rear = self._mh.getMotor(left_rear_id)
+        self._right_rear = self._mh.getMotor(right_rear_id)
+        self._left_trim = left_trim
+        self._right_trim = right_trim
+        # Start with motors turned off.
+        self._left_front.run(Adafruit_MotorHAT.RELEASE)
+        self._right_front.run(Adafruit_MotorHAT.RELEASE)
+        self._left_rear.run(Adafruit_MotorHAT.RELEASE)
+        self._right_rear.run(Adafruit_MotorHAT.RELEASE)
+       # Configure all motors to stop at program exit if desired.
+        if stop_at_exit:
+            atexit.register(self.stop)
 
     def nav(self, left_speed, right_speed, run_duration=5):
         move_command = get_move_command(left_speed, right_speed)
@@ -115,7 +113,7 @@ class r3c(object):
 
     def define_vars(self):
         global move_command
-        move_command = 'NONE'    
+        move_command = 'NONE'
 
 ######################################################################
 ######################################################################
