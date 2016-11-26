@@ -62,14 +62,14 @@ class r3c(object):
         if(left_speed >= 0):
             self._left_front.run(Adafruit_MotorHAT.FORWARD)
             self._left_rear.run(Adafruit_MotorHAT.FORWARD)
-        else
+        else:
             self._left_front.run(Adafruit_MotorHAT.BACKWARD)
             self._left_rear.run(Adafruit_MotorHAT.BACKWARD)
 
         if(right_speed >= 0):
             self._right_front.run(Adafruit_MotorHAT.FORWARD)
             self._right_rear.run(Adafruit_MotorHAT.FORWARD)
-        else
+        else:
             self._right_front.run(Adafruit_MotorHAT.BACKWARD)
             self._right_rear.run(Adafruit_MotorHAT.BACKWARD)
 
