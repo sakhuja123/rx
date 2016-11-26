@@ -28,7 +28,7 @@ class r3c(object):
         if stop_at_exit:
             atexit.register(self.stop)
 
-    def journey(self, destination='random', journey_duration='60')
+    def journey(self, destination='random', journey_duration='60'):
         r.nav(100,100,60)
         r.stop()
 
