@@ -29,7 +29,7 @@ def get_dist(self, sensorid = 'fc'):
     GPIO.cleanup()
     return distance
 
-def get_sensorpin(self, sensorid = 'fc'):
+def get_sensorpin(self, sensorid = 'xx'):
     return {
         'fl': 24,
         'fc': 24,
