@@ -50,7 +50,8 @@ class r3c(object):
                 move_command = 'FWD_LEFT'
         elif(left_speed < 0 and right_speed < 0):
             move_command = 'RVRS'
-        elif(left_speed = 0 and right_speed > 0):
+            #@TODO: add RVRS left and right commands
+        elif(left_speed == 0 and right_speed > 0):
             move_command = 'PIVOT_LEFT'
         elif(left_speed > 0 and right_speed < 0):
             move_command = 'PIVOT_RIGHT'
