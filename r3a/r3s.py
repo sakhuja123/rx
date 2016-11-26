@@ -30,13 +30,14 @@ def get_dist(self, sensorid = 'zz'):
     return distance
 
 def get_sensorpin(self, sensorid = 'xx'):
+    print "@Sensor ID: ",sensorid
     return {
-        'fl': 24,
-        'fc': 24,
-        'fr': 25,
-        'rl': 24,
-        'rc': 24,
-        'rr': 24,
-        'fdl': 24,
-        'fdr': 24,
-    }.get(sensorid, 24)
+        'fl': 00,
+        'fc': 24, 
+        'fr': 11,
+        'rl': 00,
+        'rc': 00,
+        'rr': 00,
+        'fdl': 00,
+        'fdr': 00,
+    }.get(sensorid, 99)
