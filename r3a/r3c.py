@@ -39,10 +39,10 @@ class r3c(object):
     def pivot(self,side='left',run_duration=10):
         if(side=='left'):
             print "pivot left"
-            nav(255,-255,run_duration)
+            self.nav(255,-255,run_duration)
         if(side=='right'):
             print "pivot right"
-            nav(-255,255,run_duration)
+            self.nav(-255,255,run_duration)
 
     def pause(self, max_pause_duration=20):
         self.move(0, 0)
