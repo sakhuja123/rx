@@ -7,6 +7,7 @@ r = r3c.r3c() #initialize chassis
 
 print "pivot left"
 r.pivot('left')
+time.sleep(2)
 print "pivot right"
 r.pivot('right')
 

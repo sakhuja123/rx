@@ -36,7 +36,7 @@ class r3c(object):
         self.stop()
         print "run time up!"
 
-    def pivot(self,side='left',run_duration=10):
+    def pivot(self,side='left',run_duration=5):
         if(side=='left'):
             print "pivot left"
             self.nav(255,-255,run_duration)
