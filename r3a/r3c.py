@@ -60,18 +60,21 @@ class r3c(object):
             move_command = 'PIVOT_RIGHT'
         elif(left_speed == 0 and right_speed == 0):
             move_command = 'PAUSE'
+        print "got move command as: ",move_command
         return move_command
 
     def pivot(self,side='left',run_duration=2):
+        print "command: pivot ",side
         if(side=='left'):
-            print "pivot left"
             self.nav(255,-255,run_duration)
+            print "pivot left done"
         if(side=='right'):
-            print "pivot right"
             self.nav(-255,255,run_duration)
+            print "pivot right done"
 
     def pause(self, max_pause_duration=20):
         self.move(0, 0)
+        print "pause"
 
     def stop(self):
         """Stop all movement."""
