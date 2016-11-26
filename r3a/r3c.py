@@ -38,7 +38,7 @@ class r3c(object):
                 print "obstacle!"
                 self.pause()
                 self.nav(-80,-80,2)
-                self.pivot(5)
+                self.pivot(3)
         self.stop()
         print "run time up!"
 
@@ -62,7 +62,7 @@ class r3c(object):
             move_command = 'PAUSE'
         return move_command
 
-    def pivot(self,side='left',run_duration=5):
+    def pivot(self,side='left',run_duration=2):
         if(side=='left'):
             print "pivot left"
             self.nav(255,-255,run_duration)
