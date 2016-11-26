@@ -38,8 +38,8 @@ class r3c(object):
             if(get_dist('fc') < 5 and (('FWD' in move_command) or ('PIVOT' in move_command))):
                 print "obstacle during nav"
                 self.pause()
-                self.nav(-80,-80,2)
-                self.pivot('left',5)
+                self.nav(-80,-80,1)
+                self.pivot('left',3)
         self.pause()
         print "nav time up!"
 
