@@ -28,11 +28,11 @@ class r3c(object):
     def nav(self, left_speed, right_speed, run_duration=5):
         run_start_time = time.time()
         while((time.time() - run_start_time) <= run_duration):
-            while(get_dist('fc') > 5):
-                self.move(left_speed, right_speed)
-                print "navigating: all good.. "
-            print "obstacle!"
-            self.pause()
+            self.move(left_speed, right_speed)
+            print "navigating: all good.. "
+            if(get_dist('fc') < 5):
+                print "obstacle!"
+                self.pause()
         self.stop()
         print "run time up!"
 
@@ -151,3 +151,14 @@ class r3c(object):
         speed = max(0, min(255, speed))  # Constrain speed to 0-255 after trimming.
         self._right_front.setSpeed(speed)
         self._right_rear.setSpeed(speed)
+
+    def nav-working(self, left_speed, right_speed, run_duration=5):
+        run_start_time = time.time()
+        while((time.time() - run_start_time) <= run_duration):
+            while(get_dist('fc') > 5):
+                self.move(left_speed, right_speed)
+                print "navigating: all good.. "
+            print "obstacle!"
+            self.pause()
+        self.stop()
+        print "run time up!"
