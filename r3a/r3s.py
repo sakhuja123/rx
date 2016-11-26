@@ -3,7 +3,7 @@ import time
 
 def get_dist(self, sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
-    TRIG=23
+    TRIG=23 #common for all sensors. Fire trig simultaneously
     ECHO = get_sensorpin(sensorid)
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
@@ -33,8 +33,8 @@ def get_sensorpin(self, sensorid = 'xx'):
     print "@Sensor ID: ",sensorid
     return {
         'fl': 00,
-        'fc': 24, 
-        'fr': 11,
+        'fc': 24,
+        'fr': 25,
         'rl': 00,
         'rc': 00,
         'rr': 00,
