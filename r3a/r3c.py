@@ -28,6 +28,10 @@ class r3c(object):
         if stop_at_exit:
             atexit.register(self.stop)
 
+    def journey(self, destination='random', journey_duration='60')
+        r.nav(100,100,60)
+        r.stop()
+
     def nav(self, left_speed, right_speed, run_duration=5):
         move_command = self.get_move_command(left_speed, right_speed)
         run_start_time = time.time()
@@ -40,7 +44,7 @@ class r3c(object):
                 #self.pause()
                 self.nav(-150,-150,.5)
                 self.pivot('left',2)
-        self.pause()
+        #self.pause()
         print "nav pause (time up): ",move_command
 
     def get_move_command(self, left_speed, right_speed):
