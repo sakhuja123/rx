@@ -38,7 +38,7 @@ class r3c(object):
                 print "obstacle!"
                 self.pause()
                 self.nav(-80,-80,2)
-                self.pivot(3)
+                self.pivot('left', 5)
         self.stop()
         print "run time up!"
 
