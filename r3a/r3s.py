@@ -10,9 +10,9 @@ def get_dist(sensorid = 'zz'):
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
-    time.sleep(.5)
+    time.sleep(1)
     GPIO.output(TRIG,False)
-    time.sleep(.5)
+    time.sleep(1)
     GPIO.output(TRIG,True)
     time.sleep (0.00001)
     GPIO.output(TRIG,False)
@@ -23,13 +23,14 @@ def get_dist(sensorid = 'zz'):
     while GPIO.input(ECHO)==1:
         pe=time.time()
 
+    GPIO.cleanup()
+
     #print "got start and end times, calculating distance now"
     pd = pe - ps
     distance=pd*17150/2
     distance=round(distance,2)
     print "~Sensor ID: ",sensorid,":",ECHO," Dist: ",distance,"cm"
 
-    GPIO.cleanup()
     return distance
 
 def get_sensorpin(sensorid = 'xx'):
