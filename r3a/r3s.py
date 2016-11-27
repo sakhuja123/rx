@@ -34,9 +34,9 @@ def get_dist(sensorid = 'zz'):
 def get_sensorpin(sensorid = 'xx'):
     #print "@Sensor ID: ",sensorid
     return {
-        'fl': 00,
-        'fc': 24,
-        'fr': 25,
+        'fl': 12, #Board 32
+        'fc': 24, #Board 16
+        'fr': 25, #board 18
         'rl': 00,
         'rc': 00,
         'rr': 00,
