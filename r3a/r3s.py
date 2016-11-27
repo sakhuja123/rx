@@ -10,8 +10,9 @@ def get_dist(sensorid = 'zz'):
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
+    time.sleep(1)
     GPIO.output(TRIG,False)
-    time.sleep(2)
+    time.sleep(1)
     GPIO.output(TRIG,True)
     time.sleep (0.00001)
     GPIO.output(TRIG,False)
@@ -34,8 +35,8 @@ def get_dist(sensorid = 'zz'):
 def get_sensorpin(sensorid = 'xx'):
     #print "@Sensor ID: ",sensorid
     return {
-        'fl': 12, #Board 32
-        'fc': 24, #Board 18
+        'fc': 12, #Board 32
+        'fl': 24, #Board 18
         'fr': 25, #board 22
         'rl': 00,
         'rc': 00,
