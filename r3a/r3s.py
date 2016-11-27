@@ -20,8 +20,8 @@ def get_dist(sensorid = 'zz'):
     while GPIO.input(ECHO)==0:
         ps=time.time()
 
-    #while GPIO.input(ECHO)==1:
-    if GPIO.input(ECHO)==1:
+    while GPIO.input(ECHO)==1:
+    #if GPIO.input(ECHO)==1:
         pe=time.time()
 
     GPIO.cleanup()
