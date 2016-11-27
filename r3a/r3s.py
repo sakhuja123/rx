@@ -24,13 +24,12 @@ def get_dist(sensorid = 'zz'):
     #if GPIO.input(ECHO)==1:
         pe=time.time()
 
-    GPIO.cleanup()
-
     #print "got start and end times, calculating distance now"
     pd = pe - ps
     distance=pd*17150/2
     distance=round(distance,2)
     print "~Sensor ID: ",sensorid,":",ECHO," Dist: ",distance,"cm"
+    GPIO.cleanup()
 
     return distance
 
