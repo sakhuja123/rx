@@ -26,7 +26,7 @@ def get_dist(sensorid = 'zz'):
     pd = pe - ps
     distance=pd*17150/2
     distance=round(distance,2)
-    print ">> Sensor ID: ",sensorid,":",ECHO," Dist: ",distance,"cm"
+    print "~Sensor ID: ",sensorid,":",ECHO," Dist: ",distance,"cm"
 
     GPIO.cleanup()
     return distance
