@@ -9,7 +9,7 @@ r = r3c.r3c() #initialize chassis
 print "@@@@@@@@@@ sensor readings start"
 for x in range(0, 90):
     print "Reading #: ",x
-    get_dist('fc')
+    get_dist('fl')
     get_dist('fc')
     get_dist('fr')
     print "\n\n"
