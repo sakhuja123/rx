@@ -29,7 +29,7 @@ class r3c(object):
             atexit.register(self.stop)
 
     def journey(self, route='random', journey_duration='60'):
-        self.nav(-255,-255,.5)
+        self.nav(-50,-50,2)
         self.pivot('right',2)
         self.nav(100,100,60)
         self.stop()
