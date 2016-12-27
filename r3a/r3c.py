@@ -6,7 +6,6 @@ from Adafruit_MotorHAT import Adafruit_MotorHAT
 from r3s import get_dist, get_sensorpin
 
 class r3c(object):
-
     def __init__(self, addr=0x60, left_front_id=1, right_front_id=2,left_rear_id=3, right_rear_id=4, left_trim=0, right_trim=0,stop_at_exit=True):
         #global move_command
         #move_command = 'UNDEF'
