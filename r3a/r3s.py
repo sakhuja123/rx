@@ -5,16 +5,16 @@ def get_dist(sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
     TRIG=23 # board: 16 Fire trig simultaneously
     #print "sensorid to convert: ",sensorid
-    ECHO = get_sensorpin(sensorid)
+    #ECHO = get_sensorpin(sensorid)
     ECHO = 27
     TRIG = 17
     #print "ECHO is: ",ECHO
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
-    time.sleep(1)
+    time.sleep(.5)
     GPIO.output(TRIG,False)
-    time.sleep(1)
+    time.sleep(.5)
     GPIO.output(TRIG,True)
     time.sleep (0.00001)
     GPIO.output(TRIG,False)
