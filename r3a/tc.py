@@ -8,7 +8,7 @@ r = r3c.r3c() #initialize chassis
 
 
 print "@@@@@@@@@@ journey start"
-
+r.move(50,50)
 r.journey('random',90)
 print "@@@@@@@@@@ journey end"
 
