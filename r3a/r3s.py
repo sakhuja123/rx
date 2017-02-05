@@ -3,20 +3,22 @@ import time
 
 def get_dist(sensorid = 'zz'):
     GPIO.setmode(GPIO.BCM)
-    TRIG=23 # board: 16 Fire trig simultaneously
+    #TRIG=23 # board: 16 Fire trig simultaneously
     #print "sensorid to convert: ",sensorid
     #ECHO = get_sensorpin(sensorid)
-    ECHO = 27
-    TRIG = 17
+    ECHO = 27 #13
+    TRIG = 17 #11
     #print "ECHO is: ",ECHO
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
-    time.sleep(.5)
+    time.sleep(1.5)
     GPIO.output(TRIG,False)
     #time.sleep(.5)
+
+    #burst fire for short duration
     GPIO.output(TRIG,True)
-    time.sleep (0.0005)
+    time.sleep (0.00005)
     GPIO.output(TRIG,False)
 
     while GPIO.input(ECHO)==0:
