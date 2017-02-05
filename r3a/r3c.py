@@ -28,8 +28,8 @@ class r3c(object):
             atexit.register(self.stop)
 
     def journey(self, route='random', journey_duration='60'):
-        self.nav(-50,-50,2)
-        self.pivot('right',2)
+        self.nav(-150,-150,2)
+        self.pivot('right',3)
         self.nav(200,200,60)
         self.stop()
 
@@ -43,7 +43,7 @@ class r3c(object):
             if(get_dist('fc') < 12 and (('FWD' in move_command) or ('PIVOTX' in move_command))):
                 print "obstacle during nav: ", move_command
                 #self.pause()
-                self.nav(-150,-150,.5)
+                self.nav(-220,-220,.5)
                 self.pivot('left',2)
         #self.pause()
         print "nav pause (time up): ",move_command
