@@ -14,7 +14,7 @@ def get_dist(sensorid = 'zz'):
 
     time.sleep(1.5)
     GPIO.output(TRIG,False)
-    #time.sleep(.5)
+    time.sleep(.5)
 
     #burst fire for short duration
     GPIO.output(TRIG,True)
