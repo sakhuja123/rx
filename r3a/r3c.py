@@ -30,7 +30,7 @@ class r3c(object):
     def journey(self, route='random', journey_duration='60'):
         self.nav(-50,-50,2)
         self.pivot('right',2)
-        self.nav(100,100,60)
+        self.nav(200,200,60)
         self.stop()
 
     def nav(self, left_speed, right_speed, run_duration=5):
@@ -114,13 +114,13 @@ class r3c(object):
         if(side == 'left' or side == 'both'):
             speed += self._left_trim
             speed = max(-255, min(255, speed))
-            speed = max(-50, min(50, speed))
+            #speed = max(-50, min(50, speed))
             self._left_front.setSpeed(abs(speed))
             self._left_rear.setSpeed(abs(speed))
         elif(side=='right' or side == 'both'):
             speed += self._right_trim
             speed = max(-255, min(255, speed))
-            speed = max(-50, min(50, speed))
+            #speed = max(-50, min(50, speed))
             self._right_front.setSpeed(abs(speed))
             self._right_rear.setSpeed(abs(speed))
 
