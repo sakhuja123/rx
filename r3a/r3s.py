@@ -12,11 +12,11 @@ def get_dist(sensorid = 'zz'):
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup (ECHO,GPIO.IN)
 
-    time.sleep(.1)
+    time.sleep(.5)
     GPIO.output(TRIG,False)
     #time.sleep(.5)
     GPIO.output(TRIG,True)
-    time.sleep (0.0003)
+    time.sleep (0.0005)
     GPIO.output(TRIG,False)
 
     while GPIO.input(ECHO)==0:
