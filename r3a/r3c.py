@@ -40,7 +40,7 @@ class r3c(object):
         while((time.time() - run_start_time) <= run_duration):
             self.move(left_speed, right_speed)
             #print "navigating: all good.. "
-            if(get_dist('fc') < 12 and (('FWD' in move_command) or ('PIVOTX' in move_command))):
+            if(get_dist('fc') < .12 and (('FWD' in move_command) or ('PIVOTX' in move_command))):
                 print "obstacle during nav: ", move_command
                 #self.pause()
                 self.nav(-220,-220,.5)
