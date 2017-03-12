@@ -12,7 +12,7 @@ r.move(50,50)
 #r.journey('random',90)
 print "@@@@@@@@@@ journey end"
 
-'''
+
 print "nav test 60 secs"
 r.nav(-100,-100,-1)
 r.nav(100,100,60)
@@ -28,6 +28,5 @@ print "fwd"
 r.nav(65,65,5)
 print "backup"
 r.nav(-65,-65,5)
-'''
 
 print "test over!"
