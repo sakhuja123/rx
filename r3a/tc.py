@@ -7,10 +7,10 @@ print "test start, initializing chasis and sensors"
 r = r3c.r3c() #initialize chassis
 
 
-print "@@@@@@@@@@ journey start"
+print "@@@@@@@@@@ test journey start"
 r.move(50,50)
-#r.journey('random',90)
-print "@@@@@@@@@@ journey end"
+r.journey('random',90)
+print "@@@@@@@@@@ test journey end"
 
 
 print "nav test 60 secs"
