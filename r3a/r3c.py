@@ -74,10 +74,10 @@ class r3c(object):
         print "command: pivot ",side
         if(side=='left'):
             self.nav(-255,255,run_duration)
-            print "pivot left done"
+            print "pivot left.. done"
         if(side=='right'):
             self.nav(255,-255,run_duration)
-            print "pivot right done"
+            print "pivot right.. done"
 
     def pause(self, max_pause_duration=20):
         self.move(0, 0)
@@ -89,7 +89,9 @@ class r3c(object):
         self._right_front.run(Adafruit_MotorHAT.RELEASE)
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
         self._right_rear.run(Adafruit_MotorHAT.RELEASE)
-        print "stopped"
+        print "Stopping .. done"
+        GPIO.cleanup()
+        print "GPIO cleanup... done"
 
     def move(self, left_speed=65, right_speed=65):
         self._set_speed(left_speed, 'left')
