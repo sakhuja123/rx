@@ -36,7 +36,7 @@ class r3c(object):
     def nav(self, left_speed, right_speed, run_duration=5):
         move_command = self.get_move_command(left_speed, right_speed)
         run_start_time = time.time()
-        print "nav start: ",move_command
+        print "endless nav start: ",move_command
         #while((time.time() - run_start_time) <= run_duration):
         while True:
             self.move(left_speed, right_speed)
@@ -46,7 +46,7 @@ class r3c(object):
                 #self.pause()
                 self.nav(-220,-220,.5)
                 self.pivot('left',2)
-        #self.pause()
+        self.pause()
         print "nav pause (time up): ",move_command
 
     def get_move_command(self, left_speed, right_speed):
