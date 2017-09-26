@@ -23,7 +23,7 @@ class r3c(object):
         self._right_front.run(Adafruit_MotorHAT.RELEASE)
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
         self._right_rear.run(Adafruit_MotorHAT.RELEASE)
-       # Configure all motors to stop at program exit if desired.
+        # Configure all motors to stop at program exit if desired.
         if stop_at_exit:
             atexit.register(self.stop)
 
@@ -37,7 +37,8 @@ class r3c(object):
         move_command = self.get_move_command(left_speed, right_speed)
         run_start_time = time.time()
         print "nav start: ",move_command
-        while((time.time() - run_start_time) <= run_duration):
+        #while((time.time() - run_start_time) <= run_duration):
+        while True:
             self.move(left_speed, right_speed)
             #print "navigating: all good.. "
             if(get_dist('fc') < 12 and (('FWD' in move_command) or ('PIVOTX' in move_command))):
