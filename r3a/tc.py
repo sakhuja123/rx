@@ -6,6 +6,9 @@ from r3s import get_dist, get_sensorpin
 print "test start, initializing chasis and sensors"
 r = r3c.r3c() #initialize chassis
 
+print "@@@@@@@@@@ START WHEEL TEST"
+r.wheel_test()
+print "@@@@@@@@@@ STOP WHEEL TEST"
 
 print "@@@@@@@@@@ test random journey start"
 print "@@@@@@@@@@ test random journey start"
