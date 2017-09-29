@@ -90,7 +90,26 @@ class r3c(object):
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
         self._right_rear.run(Adafruit_MotorHAT.RELEASE)
         print "Stopping .. done"
-        
+
+    def wheel_test(self):
+        self._set_speed(50, 'left')
+        self._set_speed(50, 'right')
+        run_start_time = time.time()
+        run_duration = 2
+        while ((time.time() - run_start_time) <= run_duration):
+            self._left_front.run(Adafruit_MotorHAT.FORWARD)
+        while ((time.time() - run_start_time) <= run_duration):
+            self._left_rear.run(Adafruit_MotorHAT.FORWARD)
+        while ((time.time() - run_start_time) <= run_duration):
+            self._right_front.run(Adafruit_MotorHAT.FORWARD)
+        while ((time.time() - run_start_time) <= run_duration):
+            self._right_rear.run(Adafruit_MotorHAT.FORWARD)
+
+            #self._right_front.run(Adafruit_MotorHAT.BACKWARD)
+            #self._right_rear.run(Adafruit_MotorHAT.BACKWARD)
+            #self._left_front.run(Adafruit_MotorHAT.BACKWARD)
+            #self._left_rear.run(Adafruit_MotorHAT.BACKWARD)
+
     def move(self, left_speed=65, right_speed=65):
         self._set_speed(left_speed, 'left')
         self._set_speed(right_speed, 'right')
