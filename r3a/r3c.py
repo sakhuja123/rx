@@ -101,22 +101,25 @@ class r3c(object):
         print "ID Left Front"
         while ((time.time() - run_start_time) <= run_duration):
             self._left_front.run(Adafruit_MotorHAT.FORWARD)
+        self.stop()
 
         run_start_time = time.time()
         print "ID Left Rear"
         while ((time.time() - run_start_time) <= run_duration):
             self._left_rear.run(Adafruit_MotorHAT.FORWARD)
+        self.stop()
 
         run_start_time = time.time()
         print "ID Right Front"
         while ((time.time() - run_start_time) <= run_duration):
             self._right_front.run(Adafruit_MotorHAT.FORWARD)
+        self.stop()
 
         run_start_time = time.time()
         print "ID Right Rear "
         while ((time.time() - run_start_time) <= run_duration):
             self._right_rear.run(Adafruit_MotorHAT.FORWARD)
-
+        self.stop()
             #self._right_front.run(Adafruit_MotorHAT.BACKWARD)
             #self._right_rear.run(Adafruit_MotorHAT.BACKWARD)
             #self._left_front.run(Adafruit_MotorHAT.BACKWARD)
