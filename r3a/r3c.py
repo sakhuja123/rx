@@ -36,9 +36,9 @@ class r3c(object):
     def nav(self, left_speed, right_speed, run_duration=5):
         move_command = self.get_move_command(left_speed, right_speed)
         run_start_time = time.time()
-        print "endless nav start: ",move_command
-        #while((time.time() - run_start_time) <= run_duration):
-        while True:
+        print "nav start: ",move_command
+        while((time.time() - run_start_time) <= run_duration):
+        #while True:
             self.move(left_speed, right_speed)
             #print "navigating: all good.. "
             if(get_dist('fc') < 12 and (('FWD' in move_command) or ('PIVOTX' in move_command))):
