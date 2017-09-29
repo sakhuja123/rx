@@ -90,9 +90,7 @@ class r3c(object):
         self._left_rear.run(Adafruit_MotorHAT.RELEASE)
         self._right_rear.run(Adafruit_MotorHAT.RELEASE)
         print "Stopping .. done"
-        GPIO.cleanup()
-        print "GPIO cleanup... done"
-
+        
     def move(self, left_speed=65, right_speed=65):
         self._set_speed(left_speed, 'left')
         self._set_speed(right_speed, 'right')
