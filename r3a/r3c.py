@@ -94,14 +94,26 @@ class r3c(object):
     def wheel_test(self):
         self._set_speed(50, 'left')
         self._set_speed(50, 'right')
+
+        run_duration = 4
+
         run_start_time = time.time()
-        run_duration = 2
+        print "ID Left Front"
         while ((time.time() - run_start_time) <= run_duration):
             self._left_front.run(Adafruit_MotorHAT.FORWARD)
+
+        run_start_time = time.time()
+        print "ID Left Rear"
         while ((time.time() - run_start_time) <= run_duration):
             self._left_rear.run(Adafruit_MotorHAT.FORWARD)
+
+        run_start_time = time.time()
+        print "ID Right Front"
         while ((time.time() - run_start_time) <= run_duration):
             self._right_front.run(Adafruit_MotorHAT.FORWARD)
+
+        run_start_time = time.time()
+        print "ID Right Rear "
         while ((time.time() - run_start_time) <= run_duration):
             self._right_rear.run(Adafruit_MotorHAT.FORWARD)
 
